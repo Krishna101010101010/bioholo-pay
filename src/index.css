@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -82,13 +81,15 @@
 
 @layer components {
   .cyber-glass {
-    @apply backdrop-blur-lg bg-opacity-10 bg-white border border-cyber-glass-border shadow-glass;
+    @apply backdrop-blur-lg bg-opacity-10 bg-white border shadow-glass;
     background: linear-gradient(135deg, var(--cyber-glass), rgba(16, 18, 27, 0.4));
+    border-color: var(--cyber-glass-border);
   }
   
   .cyber-panel {
-    @apply bg-cyber-black bg-opacity-70 backdrop-blur-md rounded-lg border border-cyber-glass-border shadow-glass overflow-hidden;
+    @apply bg-cyber-black bg-opacity-70 backdrop-blur-md rounded-lg border shadow-glass overflow-hidden;
     position: relative;
+    border-color: var(--cyber-glass-border);
   }
   
   .cyber-panel::before {
