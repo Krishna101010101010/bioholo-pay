@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -47,6 +48,7 @@
 
   * {
     @apply border-border selection:bg-cyber-cyan selection:bg-opacity-30 selection:text-white;
+    cursor: none !important;
   }
 
   html {
@@ -196,9 +198,8 @@
   .text-shadow-glow {
     text-shadow: 0 0 10px rgba(65, 234, 212, 0.7);
   }
-}
 
-@layer utilities {
+  /* 3D styles */
   .perspective {
     perspective: 1000px;
   }
@@ -209,5 +210,124 @@
   
   .backface-hidden {
     backface-visibility: hidden;
+  }
+
+  /* Button hover effect */
+  .hover-btn {
+    @apply relative overflow-hidden z-10;
+  }
+
+  .hover-btn:before {
+    content: '';
+    @apply absolute inset-0 opacity-0 rounded-md;
+    background: radial-gradient(circle at center, rgba(65, 234, 212, 0.4) 0%, transparent 70%);
+    transition: opacity 0.3s;
+    z-index: -1;
+  }
+
+  .hover-btn:hover:before {
+    @apply opacity-100;
+  }
+
+  /* Holographic effect */
+  .holographic {
+    @apply relative;
+    background: linear-gradient(135deg, 
+      rgba(65, 234, 212, 0.2), 
+      rgba(10, 132, 255, 0.1),
+      rgba(181, 55, 242, 0.2)
+    );
+  }
+
+  .holographic::before {
+    content: '';
+    @apply absolute inset-0 z-10;
+    background: linear-gradient(45deg, 
+      transparent 25%, 
+      rgba(255, 255, 255, 0.1) 25%, 
+      rgba(255, 255, 255, 0.1) 50%, 
+      transparent 50%, 
+      transparent 75%, 
+      rgba(255, 255, 255, 0.1) 75%
+    );
+    background-size: 6px 6px;
+    animation: holographic-shift 5s linear infinite;
+  }
+
+  @keyframes holographic-shift {
+    0% {
+      background-position: 0px 0px;
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      background-position: 100px 100px;
+      opacity: 0.3;
+    }
+  }
+}
+
+@layer utilities {
+  .perspective-500 {
+    perspective: 500px;
+  }
+  
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .perspective-1500 {
+    perspective: 1500px;
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300;
+  }
+
+  .hover-glow:hover {
+    @apply shadow-neon-cyan;
+    filter: brightness(1.2);
+  }
+
+  .hover-float {
+    transition: transform 0.3s ease;
+  }
+
+  .hover-float:hover {
+    transform: translateY(-5px);
+  }
+  
+  .translate-z-0 {
+    transform: translateZ(0px);
+  }
+  
+  .translate-z-10 {
+    transform: translateZ(10px);
+  }
+  
+  .translate-z-20 {
+    transform: translateZ(20px);
+  }
+  
+  .translate-z-30 {
+    transform: translateZ(30px);
+  }
+  
+  .translate-z-40 {
+    transform: translateZ(40px);
+  }
+  
+  .translate-z-50 {
+    transform: translateZ(50px);
   }
 }
