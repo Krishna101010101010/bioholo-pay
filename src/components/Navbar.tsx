@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Fingerprint, Hand, CreditCard, Bell, Menu, X } from 'lucide-react';
+import { Fingerprint, Hand, CreditCard, Bell, Menu, X, LayoutDashboard } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const Navbar = () => {
@@ -94,6 +94,7 @@ const NavLinks = ({ mobile = false }: { mobile?: boolean }) => {
     { name: 'How It Works', path: '/how-it-works', icon: Hand },
     { name: 'Security', path: '/security', icon: CreditCard },
     { name: 'Contact', path: '/contact', icon: Bell },
+    { name: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
   ];
   
   return (
